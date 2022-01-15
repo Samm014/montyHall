@@ -5,15 +5,17 @@
     width: var(--area-porta-largura);
     height: var(--area-porta-altura);
     align-items: center;
-    margin: 0 5px;
+    margin: 10px 5px;
 }
 
 .frame{
     display: flex;
+    flex-direction: column-reverse;
     flex-grow: 1;
     border: 5px solid brown;
     border-bottom: 0px;
     width: 90%;
+    background-color: #0005;
 }
 
 .door{
@@ -23,10 +25,13 @@
     flex-grow: 1;
     background-color: chocolate;
     padding: 15px;
+    cursor: pointer;
 }
 
 .number{
- font-size: 3rem;
+    font-size: 3rem;
+    color: #fff;
+    user-select: none;
 }
 
 .doorHandle{
@@ -37,6 +42,7 @@
     height: 20px;
     border-radius: 50%;
     background-color: brown;
+    cursor: pointer;
 }
 
 .floor{

@@ -1,16 +1,35 @@
-import { useState } from "react";
-import Door from "../components/Door";
-import DoorModel from "../model/door";
-// import Gift from "../components/Gift";
+import Card from "../components/Card";
+import styles from "../styles/Form.module.css"
+import Link from 'next/link';
+import NumericEntry from "../components/NumericEntry";
+import { useState } from 'react'
 
-export default function Home() {
+export default function Form() {
 
-  const [p1, setP1] = useState(new DoorModel(1, false, true));
+  const [countDoors,setCountDoors] = useState(3);
+  const [hasGift,setHasGift] = useState(1);
 
   return (
-    <div style={{display:'flex',margin:'10px 0'}}>
-      {/* <Gift /> */}
-      <Door door={p1}/>
+    <div className={styles.form}>
+      <div>
+        <Card bgColor="#c0392c">
+          <h1>Monty Hall</h1>
+        </Card>
+        <Card>
+        <NumericEntry value={countDoors} text="Quantidade de Portas?" onChange={newCount => setCountDoors(newCount)}/>
+        </Card>
+      </div>
+       
+      <div>
+        <Card>
+        <NumericEntry value={hasGift} text="Porta com presente?" onChange={newGift => setHasGift(newGift)}/>
+        </Card>
+        <Card bgColor="#28a085">
+          <Link href={`/game/${countDoors}/${hasGift}`} passHref>
+            <h2 className={styles.link}>Iniciar</h2>
+          </Link>
+        </Card>
+      </div>
     </div>
   )
 }
